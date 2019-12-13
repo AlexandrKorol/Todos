@@ -180,7 +180,7 @@ h2{
   background: blue;
   color: white;
   border-radius: 15px;
-  padding: 1px 8px 1px 8px;
+  padding: 3px 8px 3px 8px;
 }
 .toDoBtn{
   align-self: center;
@@ -230,4 +230,17 @@ h2{
 }
 .test{
   margin-top: auto;
+}
+
+@media screen and (max-width: 959px){
+  .basic-single{
+    margin-bottom: 10%;
+  }
+}
+.popoverText{
+  overflow: hidden;
+  text-overflow: clip;
+}
+.commentTextArea{
+  overflow: hidden;
 }
