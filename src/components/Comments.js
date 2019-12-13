@@ -1,56 +1,100 @@
 import React, {useRef, useState} from 'react'
 import {connect} from "react-redux";
 import {Translate} from 'react-redux-i18n';
-import Paper from '@material-ui/core/Paper';
-import CommentList from "./CommentList";
-import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
-import { OutlinedInput } from '@material-ui/core';
-const Comments = (props) =>{
+import {Paper, Button, Avatar, OutlinedInput, makeStyles} from '@material-ui/core';
+import CommentList from './CommentList';
+const Comments = props=>{
+        const {postId,ownId, comments, active} = props;
+        const inputRef = useRef(0);
+        const [comment, setState] = useState(0);
+        
+        const setValue=(e)=>{
+            setState(e.target.value);
+        }
+        const addComment = e =>{
+            
+            if(comment.length !== 0){
+                props.addComment({
+                            id: postId,
+                            ownId: ownId,
+                            body: comment
+                });
+                inputRef.current.firstChild.value = '';
+            }
+        }
+        
+    const styles= makeStyles({
+        commentBlock:{
+            padding: '20px 20px 0 20px',
+            height: '100%',
+        },
+        comments:{
+            padding: '30px',
+            height: '100%',
+            height: '82vh',
+            display: 'flex',
+            flexDirection: 'column',
+        },
+        commentsWrapper:{
+            maxHeight: '75%',
+            overflowY: 'scroll', 
+            overflowX: 'hidden',
+        },
+        commentFieldWrapper:{
+            marginTop: 'auto',
+        },
+        commentField:{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '10px',
+        },
+        textField:{
+            width: '77%', 
+        },
+        btnWithLine:{
+            alignSelf: 'flex-end',
+            marginTop: '20px',
+            display: 'flex',
+        },
+        lineForBtn:{
+            alignSelf: 'center',
+            width: '80%',
+            height: '1px',
+            background: 'lightgrey',
+        },
+        btn:{
+            width: '20%',
+        }
 
-    const inputRef = useRef(0);
-    const [comment, setState] = useState(0);
-    
-    const setValue=(e)=>{
-        setState(e.target.value);
-    }
-    const addComment =()=>(e)=>{
-        if(comment.length === 0){
-            return null;
-        }
-        else{
-            props.addComment({
-                        id: props.postId,
-                        ownId: props.ownId,
-                        body: comment
-            });
-            inputRef.current.firstChild.value = '';
-        }
-    }
+    })
+    const classes = styles();
     return(
         
-            <div className="commentBlock">
-                <Paper className="comments">
+            <div className={classes.commentBlock}>
+                <Paper className={classes.comments}>
                     <h2><Translate value='comments'/> 
                     {
-                        props.postId !== null ? 
-                        <span>#{props.postId + 1}</span>:
+                        postId !== null ? 
+                        <span>#{postId + 1}</span>:
                         null
                     } </h2>
 
                     {
-                        props.postId !== null ? 
-                                <div className="commentsWrapper"><CommentList comments={props.comments}active={props.active}/></div> : null
+                        postId !== null ? 
+                                <div className={classes.commentsWrapper}><CommentList comments={comments}active={active}/></div> : null
                     }
                     {
-                        props.postId !== null ? 
-                                <div className="commentFieldWrapper">
-                                    <div className="commentField"><Avatar sizes="medium" variant="square" /> <OutlinedInput multiline id="outlined-basic" variant="outlined" 
-                                        className="textField" size="small" onChange={setValue} ref={inputRef}/>
+                        postId !== null ? 
+                                <div className={classes.commentFieldWrapper}>
+                                    <div className={classes.commentField}>
+                                        <Avatar sizes="medium" variant="square" /> 
+                                        <OutlinedInput multiline id="outlined-basic" variant="outlined" 
+                                        className={classes.textField} size="small" onChange={setValue} ref={inputRef} rowsMax={3}/>
                                     </div>
-                                    <div className="btnWithLine">
-                                        <div className="lineForBtn"></div>
-                                        <Button variant="contained" color="primary" size="medium" className="btn" onClick={addComment()}><Translate value='addNew'/> </Button>
+                                    <div className={classes.btnWithLine}>
+                                        <div className={classes.lineForBtn}></div>
+                                        <Button variant="contained" color="primary" size="medium" className={classes.btn} onClick={addComment}>
+                                            <Translate value='addNew'/> </Button>
                                     </div>
                                 </div>: null
                     }

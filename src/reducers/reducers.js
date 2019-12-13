@@ -1,7 +1,11 @@
+const ADD_TODO = 'ADD_TODO';
+const GET_INDEX = 'GET_INDEX';
+const ACTIVATE_TODO = 'ACTIVATE_TODO';
+const DELETE_TODO = 'DELETE_TODO';
+const ADD_COMMENT = 'ADD_COMMENT';
 
 
 const initialState = {
-	locale: 'en',       //  TODO REMOVE
 	itemList: [],
 	comments: [],
 	active: null,
@@ -11,25 +15,25 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
 	switch (type) {
-		case 'ADD_TODO': {
+		case ADD_TODO: {
 			return {
 				...state,
 				itemList: [ ...state.itemList, payload ],
 			};
 		}
-		case 'GET_INDEX': {
+		case GET_INDEX: {
 			return {
 				...state,
 				newToDoId: state.newToDoId + 1,
 			};
 		}
-		case 'ACTIVATE_TODO': {
+		case ACTIVATE_TODO: {
 			return {
 				...state,
-				active: payload.id,
+				active: payload,
 			};
 		}
-		case 'DELETE_TODO': {
+		case DELETE_TODO: {
 			let result = state.comments.filter(item => item.id !== payload.id);
 			return {
 				...state,
@@ -38,7 +42,7 @@ const reducer = (state = initialState, { type, payload }) => {
 				active: null,
 			};
 		}
-		case 'ADD_COMMENT': {
+		case ADD_COMMENT: {
 			return {
 				...state,
 				comments: [ ...state.comments, payload ],

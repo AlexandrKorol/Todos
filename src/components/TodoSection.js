@@ -6,7 +6,7 @@ import Comments from './Comments';
 const TodoSection = () => {
 	return (
 		<div className="table">
-			<Grid container justify="center" className="todosec">
+			<Grid container justify="center">
 				<Grid item xs={12} md={6} style={{ minHeight: 600 }}>
 					<List/>
 				</Grid>

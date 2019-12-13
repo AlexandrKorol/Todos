@@ -59,10 +59,7 @@ h2{
   padding: 6px 18px !important;
 }
 .itemlist{
-  padding: 20px 20px 0 20px;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
+  
 }
 .list{
   display: flex;
@@ -86,14 +83,14 @@ h2{
     flex-direction: column;
 }
 .textField{
-  width: 77%;
+ 
 }
 .textField input{
   padding: 9.5px 14px!important;
 
 }
 .btn{
-  width: 20%;
+ 
 }
 .inputField{
   padding-top: 20px;
@@ -162,9 +159,7 @@ h2{
   width: 15%;
 }
 .innerTexts{
-  text-overflow: ellipsis;
-  max-width: 94%;
-  overflow: hidden;
+  
 }
 .commentText{
   width: 85%;
@@ -173,6 +168,7 @@ h2{
   align-self: center;
   overflow: hidden;
 }
+
 .commentCounter{
   margin-left: 5px;
   align-self: flex-start;
@@ -187,22 +183,17 @@ h2{
 }
 .commentsWrapper{
   max-height: 75%;
-  overflow-y: scroll; /* Hide vertical scrollbar */
+  overflow-y: scroll; 
   overflow-x: hidden;
 }
 .commentFieldWrapper{
   margin-top:auto;
 }
 .btnWithLine{
-  align-self: flex-end;
-  margin-top: 20px;
-  display: flex;
+  
 }
 .lineForBtn{
-  align-self: center;
-  width: 80%;
-  height: 1px;
-  background: lightgrey;
+  
 }
 .languages{
   margin-bottom: 35%;
@@ -225,9 +216,13 @@ h2{
 }
 .toDoListWrapper{
   max-height: 80%;
-  overflow-y: scroll; /* Hide vertical scrollbar */
+  overflow-y: scroll; 
   overflow-x: hidden;
 }
 .test{
   margin-top: auto;
+}
+.toDoItemTextArea{
+  overflow: hidden;
+    text-overflow: ellipsis;
 }

@@ -3,7 +3,7 @@ import Select from 'react-select';
 import {Translate} from 'react-redux-i18n';
 import {setLocale} from 'react-redux-i18n';
 import {connect} from 'react-redux';
-
+import {makeStyles} from '@material-ui/core';
 const options = [
   { value: 'en', label: 'English'},
   { value: 'ru', label: 'Русский'}
@@ -42,6 +42,13 @@ const options = [
     }),
     
   }
+  const styles = makeStyles({
+    basicSingle:{
+      width: '30%',
+      alignSelf: 'center',
+      marginBottom: '40%',
+    }
+  })
 
 const Sidebar = (props)=>{
     
@@ -49,13 +56,13 @@ const Sidebar = (props)=>{
       
       props.changeLocale(locale.value);
     }
-    
+    const classes = styles();
     return(
         <div className="sidebar">
             <h2><Translate value='toDo'/></h2>
                 <Select
                   defaultValue='en'
-                  className="basic-single"
+                  className={classes.basicSingle}
                   classNamePrefix="select"
                   options={options}
                   name="color"
