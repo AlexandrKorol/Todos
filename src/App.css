@@ -16,7 +16,8 @@ h2{
   height: 100%;
 }
 .MuiButton-containedPrimary{
-  background: #6AC5FE!important;
+  background: none;
+  background-color:#6AC5FE!important
 }
 .App{
   padding: 0;
