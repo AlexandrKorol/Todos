@@ -244,3 +244,7 @@ h2{
 .commentTextArea{
   overflow: hidden;
 }
+.toDoItemTextArea{
+  overflow: hidden;
+    text-overflow: ellipsis;
+}

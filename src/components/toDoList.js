@@ -60,7 +60,7 @@ const List = props => {
                 >
                   <div className="toDoItemWrap">
                     <Tooltip title={item.title}>
-                      <Typography>
+                      <Typography classes={{root:'toDoItemTextArea'}}>
                         {item.title}
                         {props.comments.filter(
                           commentItem => item.id === commentItem.id
