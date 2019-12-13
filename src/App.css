@@ -5,24 +5,27 @@ body{
   height:100vh;
   box-sizing: border-box;
 }
+#root{
+        height: 100%;
+}
+.App{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+}
 .mainWrapper{
   height: 100vh;
 }
 h2{
   font-size: 40px;
   font-weight: 100;
+  margin: 0;
+  padding: 0;
 }
-#root{
-  height: 100%;
-}
+
 .MuiButton-containedPrimary{
   background: none;
   background-color:#6AC5FE!important
-}
-.App{
-  padding: 0;
-  margin: 0;
-  height: 100%;
 }
 .sidebar{
   background: #316A82;
@@ -31,6 +34,9 @@ h2{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.sidebar h2{
+  padding: 40px 0 0 40px;
 }
 .languages button{
   width: 140px;
@@ -41,20 +47,13 @@ h2{
   display: flex;
   justify-content: space-around;
   text-align: center;
-
 }
 .basic-single{
   width: 30%;
   align-self: center;
   margin-bottom: 40%;
 }
-.sidebar h2{
-  padding: 40px 0 0 40px;
-}
-h2{
-  margin: 0;
-  padding: 0;
-}
+
 .langBtn{
   padding: 6px 18px !important;
 }
