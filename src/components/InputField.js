@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
-
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Translate } from 'react-redux-i18n';
 import { OutlinedInput, Button, makeStyles } from '@material-ui/core';
 
 const InputField = props => {
+	const { addToDo, setIndex, index } = props;
 	const [inputValue, setState] = useState(0);
 	const inputRef = useRef(0);
 	const onChangeHandler = e => {
@@ -13,12 +13,11 @@ const InputField = props => {
 
 	const addToDoItem = e => {
 		if (inputValue !== '') {
-			const { addToDo, setIndex, index } = props;
 			const date = new Date();
 			addToDo(inputValue, index, date);
+			setIndex();
 			setState('');
 			inputRef.current.firstChild.value = '';
-			setIndex();
 		}
 	};
 	const styles = makeStyles({
@@ -59,30 +58,10 @@ const InputField = props => {
 	);
 };
 
-const mapStateToProps = state => {
-	return {
-		toDoList: state.todoState.itemList,
-		index: state.todoState.newToDoId
-	};
+InputField.propTypes = {
+	addToDo: PropTypes.func.isRequired,
+	setIndex: PropTypes.func.isRequired,
+	index: PropTypes.number.isRequired
 };
 
-const mapDispatchToProps = dispatch => ({
-	addToDo: (todo, key, time) => {
-		dispatch({
-			type: 'ADD_TODO',
-			payload: {
-				title: todo,
-				id: key,
-				comments: [],
-				createAt: time
-			}
-		});
-	},
-	setIndex: () => {
-		dispatch({
-			type: 'GET_INDEX'
-		});
-	}
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(InputField);
+export default InputField;

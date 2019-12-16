@@ -1,5 +1,6 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
-import reducers from '../reducers/reducers';
+import {commentsReducer} from '../reducers/commentsReducer';
+import {toDoListReducer} from '../reducers/toDoListReducer';
 import thunk from 'redux-thunk';
 import { loadTranslations, setLocale, syncTranslationWithStore, i18nReducer } from 'react-redux-i18n';
 import { createLogger } from 'redux-logger';
@@ -33,7 +34,8 @@ const translationObject = {
 
 const rootReducer = combineReducers({
 	i18n: i18nReducer,
-	todoState: reducers,
+	toDoList: toDoListReducer,
+	comments: commentsReducer
 });
 
 const store = createStore(

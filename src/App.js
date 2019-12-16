@@ -1,25 +1,32 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import {setLocale} from 'react-redux-i18n';
+import {connect} from 'react-redux';
 import TodoSection from './components/TodoSection';
 import Sidebar from './components/Sidebar';
+
 import './App.css';
 
-function App() {
+function App(props) {
+	
+	const {changeLocale,} = props;
 	return (
-		<Provider store={store}>
 			<Grid display='flex' container className='mainWrapper'>
 				<Grid item xs={12} md={3} height={1}>
-					<Sidebar/>
+					<Sidebar changeLocale={changeLocale}/>
 				</Grid>
 				<Grid item xs={12} md={9}>
-					<TodoSection/>
+					<TodoSection />
 				</Grid>
 			</Grid>
-
-		</Provider>
 	);
 }
 
-export default App;
+
+const mapDispatchToProps =(dispatch)=> ({
+	changeLocale: (lang)=>{
+		dispatch(setLocale(lang))
+	  }
+})
+
+export default connect(null,mapDispatchToProps)(App);
