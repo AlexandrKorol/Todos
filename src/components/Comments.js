@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import CommentList from './CommentList';
 const Comments = props => {
-	const { ownId, comments, active } = props;
+	const { ownId, comments, active, itemList } = props;
 	const inputRef = useRef(0);
 	const [comment, setState] = useState(0);
 
@@ -72,13 +72,14 @@ const Comments = props => {
 			width: '20%'
 		}
 	});
-	const classes = styles();
+    const classes = styles();
+    let commentId = itemList.filter(item=>item.id === active);
 	return (
 		<div className={classes.commentBlock}>
 			<Paper className={classes.comments}>
 				<h2>
 					<Translate value="comments" />
-					{active !== null ? <span>#{active + 1}</span> : null}
+					{active !== null ? <span>#{commentId[0].ownId + 1}</span> : null}
 				</h2>
 
 				{active !== null ? (
@@ -125,7 +126,8 @@ const Comments = props => {
 };
 
 const mapStateToProps = state => ({
-	comments: state.comments.commentsArray,
+    comments: state.comments.commentsArray,
+    itemList: state.toDoList.itemList,
 	active: state.toDoList.active,
 	ownId: state.comments.commentId
 });

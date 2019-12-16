@@ -10,7 +10,8 @@ export const addToDo = (todo, key, time) => (dispatch, getState) => {
 		type: ADD_TODO,
 		payload: {
 			title: todo,
-			id: key,
+            id: key,
+            ownId: key,
 			comments: [],
 			createAt: time
 		}

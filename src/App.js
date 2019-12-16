@@ -1,17 +1,23 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, makeStyles,withStyles } from '@material-ui/core';
 import {setLocale} from 'react-redux-i18n';
 import {connect} from 'react-redux';
 import TodoSection from './components/TodoSection';
 import Sidebar from './components/Sidebar';
 
-import './App.css';
+// import './App.css';
 
+
+const styles=makeStyles({
+	mainWrapper:{
+		height:" 100vh",
+	},
+})
 function App(props) {
-	
+	const classes = styles();
 	const {changeLocale,} = props;
 	return (
-			<Grid display='flex' container className='mainWrapper'>
+			<Grid display='flex' container className={classes.mainWrapper}>
 				<Grid item xs={12} md={3} height={1}>
 					<Sidebar changeLocale={changeLocale}/>
 				</Grid>

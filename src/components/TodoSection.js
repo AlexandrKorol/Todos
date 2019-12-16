@@ -1,11 +1,33 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import List from './List';
 import Comments from './Comments';
 
+const styles=makeStyles({
+	table:{
+		height:"100%"
+	},
+	'@global':{
+		body:{
+
+		},
+		"::-webkit-scrollbar": {
+			display: "none"
+		},
+		h2:{
+			fontSize: "40px",
+			fontWeight: "100",
+		  }
+
+	},
+	
+})
+
+
 const TodoSection = () => {
+	const classes = styles();
 	return (
-		<div className="table">
+		<div className={classes.table}>
 			<Grid container justify="center">
 				<Grid item xs={12} md={6} style={{ minHeight: 600 }}>
 					<List />

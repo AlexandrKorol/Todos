@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useRef,useEffect} from 'react';
 import cn from 'classnames';
 import { Translate } from 'react-redux-i18n';
-import { Button, makeStyles } from '@material-ui/core';
+import { Button, makeStyles, Tooltip } from '@material-ui/core';
 import PropTypes from 'prop-types';
 const List = props => {
 	const { toDoList, active, comments, activateToDo, rmToDo } = props;
@@ -10,10 +10,17 @@ const List = props => {
 	};
 	const removeToDo = id => e => {
 		e.stopPropagation();
-		let newList = toDoList.filter(item => {
+		let newList = toDoList.filter((item) => {
 			return item.id !== id;
 		});
-		rmToDo(newList, id);
+		let filtered = newList.map((item,index)=>{
+			return {...item, ownId: index}
+
+		})
+		console.log('Filtered list', filtered)
+		rmToDo(filtered, id);
+		if(newList.length > 0)
+		activateToDo(filtered[filtered.length-1].id)
 		
 	};
 	const styles = makeStyles({
@@ -26,13 +33,14 @@ const List = props => {
 			listStyle: 'none',
 			margin: '0',
 			paddingTop: '30px',
-			padding: '0'
+			padding: '0',
+			
 		},
 		toDoItemWrap: {
 			justifyContent: 'space-between',
 			overflow: 'hidden',
 			display: 'flex',
-			width: '100%',
+			width: '95%',
 			marginLeft: '30px',
 			paddingBottom: '10px',
 			paddingTop: '10px'
@@ -40,16 +48,21 @@ const List = props => {
 		todoListItem: {
 			display: 'flex',
 			justifyContent: 'space-between',
-			cursor: 'pointer'
-		},
-		active: {
-			'&before': {
-				content: ' ',
-				position: 'static',
-				width: '4px',
-				height: 'auto',
-				background: 'green'
-			}
+			cursor: 'pointer',
+			' &active':{
+				display: 'flex',
+				'&:before':{
+					content: '" "',
+  					position: 'static',
+  					width: '4px',
+  					height: 'auto',
+  					background: 'green',
+				},
+				'& $toDoItemWrap':{
+					borderBottom: '1px solid lightgrey'
+				}
+			},
+			
 		},
 		commentText: {
 			width: '85%',
@@ -74,7 +87,14 @@ const List = props => {
 		}
 	});
 	const classes = styles();
-	
+	let listRef = useRef(null);
+	useEffect(() => {
+		console.log(listRef.current);
+		return ()=>{
+			listRef=0;
+		}
+	}, [listRef.current]);
+
 	return (
 		<div className={classes.toDoListWrapper}>
 			<ul className={classes.todoList}>
@@ -85,8 +105,10 @@ const List = props => {
 									key={item.id}
 									className={
 										item.id === active
-											? 'todoListItem active'
+
+											? classes.todoListItem +  'active'
 											: classes.todoListItem
+										
 									}
 									onClick={makeActive(item.id)}
 								>
@@ -94,9 +116,16 @@ const List = props => {
 										<div className={classes.commentText}>
 											<span
 												className={classes.innerTexts}
-												
+												ref={listRef}
 											>
-												{item.title}
+												{
+													
+													listRef.scrollWidth && listRef.scrollWidth > listRef.offsetWidth ? 
+													<Tooltip title={item.title}>
+														<span>1{item.title}</span>
+													</Tooltip>:
+													<span>{item.title}</span>
+												}
 											</span>
 											{comments.filter(
 												commentItem =>

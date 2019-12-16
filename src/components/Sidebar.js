@@ -41,7 +41,18 @@ const styles = makeStyles({
 		width: '30%',
 		alignSelf: 'center',
 		marginBottom: '40%'
-	}
+  },
+  sidebar: {
+    background: "#316A82",
+    color: "white !important",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+  h2:{
+    padding: "40px 0 0 40px",
+  }
 });
 
 const Sidebar = props => {
@@ -51,8 +62,8 @@ const Sidebar = props => {
 	};
 	const classes = styles();
 	return (
-		<div className="sidebar">
-			<h2>
+		<div className={classes.sidebar}>
+			<h2 className={classes.h2}>
 				<Translate value="toDo" />
 			</h2>
 			<Select

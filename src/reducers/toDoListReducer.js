@@ -12,6 +12,7 @@ const initialState = {
 export const toDoListReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 		case ADD_TODO: {
+            payload.ownId = state.itemList.length
 			return {
 				...state,
 				itemList: [...state.itemList, payload]
@@ -24,6 +25,7 @@ export const toDoListReducer = (state = initialState, { type, payload }) => {
 			};
 		}
 		case ACTIVATE_TODO: {
+
 			return {
 				...state,
 				active: payload
