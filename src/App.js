@@ -16,11 +16,11 @@ function App(props) {
 	const classes = styles();
 	const {changeLocale,} = props;
 	return (
-			<Grid  container className={classes.mainWrapper} xs={12}>
-				<Grid container xs={12} md={3} height={1}>
+			<Grid  container className={classes.mainWrapper}>
+				<Grid item xs={12} md={3} height={1}>
 					<Sidebar changeLocale={changeLocale}/>
 				</Grid>
-				<Grid container xs={12} md={9}>
+				<Grid item xs={12} md={9}>
 					<TodoSection />
 				</Grid>
 			</Grid>

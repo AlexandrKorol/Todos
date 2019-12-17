@@ -9,12 +9,14 @@ const styles = makeStyles({
 		width: '100%'
 	},
 	'@global': {
-		body: {},
+		body: {
+			padding: '0'
+		},
 		'::-webkit-scrollbar': {
 			display: 'none'
 		},
 		h2: {
-			fontSize: '2.4rem',
+			fontSize: '40px',
 			fontWeight: '100'
 		}
 	}
