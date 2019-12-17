@@ -27,7 +27,7 @@ const Comments = props => {
 				body: comment
 			});
 			inputRef.current.firstChild.value = '';
-			setState('')
+			setState('');
 		}
 	};
 
@@ -73,9 +73,9 @@ const Comments = props => {
 			width: '20%',
 			backgroundColor: '#6AC5FE!important'
 		},
-		"@media(max-width(768px)":{
-			commentBlock:{
-				marginTop:'10px'
+		'@media(max-width(768px)': {
+			commentBlock: {
+				marginTop: '10px'
 			}
 		}
 	});

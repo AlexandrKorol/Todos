@@ -41,26 +41,26 @@ const styles = makeStyles({
 		width: '30%',
 		alignSelf: 'center',
 		marginBottom: '40%'
-  },
-  sidebar: {
-    background: "#316A82",
-    color: "white !important",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  },
-  h2:{
-    padding: "40px 0 0 40px",
-  },
-  '@media(max-width: 768px)':{
-	basicSingle:{
-		marginBottom: '30%'
 	},
-	sidebar:{
-		minHeight: '100vh'
+	sidebar: {
+		background: '#316A82',
+		color: 'white !important',
+		height: '100%',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-between'
+	},
+	h2: {
+		padding: '40px 0 0 40px'
+	},
+	'@media(max-width: 768px)': {
+		basicSingle: {
+			marginBottom: '30%'
+		},
+		sidebar: {
+			minHeight: '100vh'
+		}
 	}
-  }
 });
 
 const Sidebar = props => {

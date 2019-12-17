@@ -2,11 +2,7 @@ import React from 'react';
 import { Translate } from 'react-redux-i18n';
 import PropTypes from 'prop-types';
 import { Paper, makeStyles } from '@material-ui/core';
-import {
-	addToDo,
-	setIndex,
-	activateToDo
-} from '../actions/ToDoList';
+import { addToDo, setIndex, activateToDo } from '../actions/ToDoList';
 import { connect } from 'react-redux';
 import ToDoList from './toDoList';
 import InputField from './InputField';
@@ -38,8 +34,8 @@ const List = props => {
 		toDoListHeader: {
 			paddingLeft: '30px'
 		},
-		'@media(max-width:768px)':{
-			list:{
+		'@media(max-width:768px)': {
+			list: {
 				minHeight: '100vh'
 			}
 		}
@@ -85,8 +81,7 @@ const mapDispatchToProps = dispatch => ({
 	},
 	setIndex: () => {
 		dispatch(setIndex());
-	},
-	
+	}
 });
 
 List.propTypes = {

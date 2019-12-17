@@ -3,26 +3,21 @@ import { Grid, makeStyles } from '@material-ui/core';
 import List from './List';
 import Comments from './Comments';
 
-const styles=makeStyles({
-	table:{
-		height:"100%"
+const styles = makeStyles({
+	table: {
+		height: '100%'
 	},
-	'@global':{
-		body:{
-
+	'@global': {
+		body: {},
+		'::-webkit-scrollbar': {
+			display: 'none'
 		},
-		"::-webkit-scrollbar": {
-			display: "none"
-		},
-		h2:{
-			fontSize: "2.4rem",
-			fontWeight: "100",
-		  }
-
-	},
-	
-})
-
+		h2: {
+			fontSize: '2.4rem',
+			fontWeight: '100'
+		}
+	}
+});
 
 const TodoSection = () => {
 	const classes = styles();
