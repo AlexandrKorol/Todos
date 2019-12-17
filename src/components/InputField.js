@@ -1,7 +1,11 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Translate } from 'react-redux-i18n';
-import { OutlinedInput, Button, makeStyles } from '@material-ui/core';
+import { 
+	OutlinedInput, 
+	Button, 
+	makeStyles 
+} from '@material-ui/core';
 
 const InputField = props => {
 	const { addToDo, setIndex, index } = props;

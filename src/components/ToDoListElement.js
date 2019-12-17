@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { Translate } from 'react-redux-i18n';
 import {
@@ -169,6 +170,12 @@ const mapDispatchToProps = (dispatch) => ({
 		dispatch(filterComments(id));
 	}
 })
-
-
+// const {activateToDo, id, title, active, comments} = props;
+ListElement.propTypes={
+	activateToDo: PropTypes.func.isRequired,
+	id:PropTypes.number.isRequired,
+	title: PropTypes.string.isRequired,
+	active: PropTypes.number.isRequired,
+	comments: PropTypes.array.isRequired
+}
 export default connect(mapStateToProps, mapDispatchToProps)(ListElement);
