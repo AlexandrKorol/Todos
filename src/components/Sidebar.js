@@ -45,7 +45,8 @@ const styles = makeStyles({
 	sidebar: {
 		background: '#316A82',
 		color: 'white !important',
-		height: '100%',
+    height: '100%',
+    width: '100%',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-between'

@@ -5,7 +5,8 @@ import Comments from './Comments';
 
 const styles = makeStyles({
 	table: {
-		height: '100%'
+		height: '100%',
+		width: '100%'
 	},
 	'@global': {
 		body: {},
