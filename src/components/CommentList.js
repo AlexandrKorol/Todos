@@ -1,15 +1,21 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Avatar } from '@material-ui/core';
 import CommentListElement from './CommentListElement';
-
+import {makeStyles} from "@material-ui/core"
 
 
 const CommentList = props => {
 	
+	const styles=makeStyles({
+		list:{
+			padding:0
+		}
+	})
+
 	const { comments, active } = props;
+	const classes = styles();
 	return (
-		<ul>
+		<ul className={classes.list}>
 			{comments !== undefined
 				? comments.map(item => {
 						return item.id === active ? (
