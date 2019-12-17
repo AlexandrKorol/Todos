@@ -15,7 +15,7 @@ const styles=makeStyles({
 			display: "none"
 		},
 		h2:{
-			fontSize: "40px",
+			fontSize: "2.4rem",
 			fontWeight: "100",
 		  }
 
