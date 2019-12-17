@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react'
 import { makeStyles, Avatar, Tooltip } from '@material-ui/core';
 import { deepOrange } from '@material-ui/core/colors';
-
+import PropTypes from 'prop-types';
 
 const CommentListElement = props =>{
     const {body} = props;
@@ -58,5 +58,7 @@ const CommentListElement = props =>{
         </span>
     </li>)
 }
-
+CommentListElement.propTypes={
+    body: PropTypes.string.isRequired
+}
 export default CommentListElement;
