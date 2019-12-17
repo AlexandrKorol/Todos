@@ -25,7 +25,6 @@ const List = props => {
 	const styles = makeStyles({
 		itemList: {
 			padding: '20px 20px 0 20px',
-			height: '70vh',
 			display: 'flex',
 			flexDirection: 'column'
 		},
