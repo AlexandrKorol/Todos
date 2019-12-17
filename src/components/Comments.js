@@ -14,19 +14,20 @@ import CommentList from './CommentList';
 const Comments = props => {
 	const { ownId, comments, active, itemList } = props;
 	const inputRef = useRef(0);
-	const [comment, setState] = useState(0);
+	const [comment, setState] = useState('');
 
 	const setValue = e => {
 		setState(e.target.value);
 	};
 	const addComment = e => {
-		if (comment.length !== 0) {
+		if (comment !== null && comment.length !== 0) {
 			props.addComment({
 				id: active,
 				ownId: ownId,
 				body: comment
 			});
 			inputRef.current.firstChild.value = '';
+			setState('')
 		}
 	};
 
@@ -69,17 +70,20 @@ const Comments = props => {
 			background: 'lightgrey'
 		},
 		btn: {
-			width: '20%'
+			width: '20%',
+			backgroundColor: '#6AC5FE!important'
 		}
 	});
-    const classes = styles();
-    let commentId = itemList.filter(item=>item.id === active);
+	const classes = styles();
+	let commentId = itemList.filter(item => item.id === active);
 	return (
 		<div className={classes.commentBlock}>
 			<Paper className={classes.comments}>
 				<h2>
 					<Translate value="comments" />
-					{active !== null ? <span>#{commentId[0].ownId + 1}</span> : null}
+					{active !== null ? (
+						<span>#{commentId[0].ownId + 1}</span>
+					) : null}
 				</h2>
 
 				{active !== null ? (
@@ -126,8 +130,8 @@ const Comments = props => {
 };
 
 const mapStateToProps = state => ({
-    comments: state.comments.commentsArray,
-    itemList: state.toDoList.itemList,
+	comments: state.comments.commentsArray,
+	itemList: state.toDoList.itemList,
 	active: state.toDoList.active,
 	ownId: state.comments.commentId
 });

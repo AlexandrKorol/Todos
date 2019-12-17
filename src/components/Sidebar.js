@@ -52,6 +52,14 @@ const styles = makeStyles({
   },
   h2:{
     padding: "40px 0 0 40px",
+  },
+  '@media(max-width: 768px)':{
+	basicSingle:{
+		marginBottom: '30%'
+	},
+	sidebar:{
+		minHeight: '100vh'
+	}
   }
 });
 

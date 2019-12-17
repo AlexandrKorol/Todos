@@ -5,7 +5,7 @@ import { OutlinedInput, Button, makeStyles } from '@material-ui/core';
 
 const InputField = props => {
 	const { addToDo, setIndex, index } = props;
-	const [inputValue, setState] = useState(0);
+	const [inputValue, setState] = useState('');
 	const inputRef = useRef(0);
 	const onChangeHandler = e => {
 		setState(e.target.value);
@@ -32,6 +32,9 @@ const InputField = props => {
 		},
 		input: {
 			padding: '9.5px 14px!important'
+		},
+		btn:{
+			backgroundColor:'#6AC5FE!important'
 		}
 	});
 	const classes = styles();
@@ -50,6 +53,7 @@ const InputField = props => {
 					color="primary"
 					size="medium"
 					onClick={addToDoItem}
+					className={classes.btn}
 				>
 					<Translate value="addNew" />
 				</Button>

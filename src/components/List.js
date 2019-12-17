@@ -4,11 +4,9 @@ import PropTypes from 'prop-types';
 import { Paper, makeStyles } from '@material-ui/core';
 import {
 	addToDo,
-	deleteToDo,
 	setIndex,
 	activateToDo
 } from '../actions/ToDoList';
-import { filterComments } from '../actions/Comments';
 import { connect } from 'react-redux';
 import ToDoList from './toDoList';
 import InputField from './InputField';
@@ -21,7 +19,8 @@ const List = props => {
 		comments,
 		active,
 		rmToDo,
-		activateToDo
+		activateToDo,
+		newToDoId
 	} = props;
 	const styles = makeStyles({
 		itemList: {
@@ -39,6 +38,11 @@ const List = props => {
 		},
 		toDoListHeader: {
 			paddingLeft: '30px'
+		},
+		'@media(max-width:768px)':{
+			list:{
+				minHeight: '100vh'
+			}
 		}
 	});
 	const classes = styles();
@@ -61,6 +65,7 @@ const List = props => {
 					active={active}
 					activateToDo={activateToDo}
 					rmToDo={rmToDo}
+					newToDoId={newToDoId}
 				/>
 			</Paper>
 		</div>
@@ -70,7 +75,8 @@ const mapStateToProps = state => ({
 	toDoList: state.toDoList.itemList,
 	comments: state.comments.commentsArray,
 	index: state.toDoList.newToDoId,
-	active: state.toDoList.active
+	active: state.toDoList.active,
+	newToDoId: state.toDoList.newToDoId
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -81,20 +87,12 @@ const mapDispatchToProps = dispatch => ({
 	setIndex: () => {
 		dispatch(setIndex());
 	},
-	activateToDo: id => {
-		dispatch(activateToDo(id));
-	},
-	rmToDo: (list, id) => {
-		dispatch(deleteToDo(list));
-		dispatch(filterComments(id));
-	}
+	
 });
 
 List.propTypes = {
 	addToDo: PropTypes.func.isRequired,
 	setIndex: PropTypes.func.isRequired,
-	activateToDo: PropTypes.func.isRequired,
-	rmToDo: PropTypes.func.isRequired,
 	toDoList: PropTypes.array.isRequired,
 	index: PropTypes.number.isRequired,
 	active: PropTypes.number
