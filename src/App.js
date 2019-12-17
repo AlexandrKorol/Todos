@@ -16,7 +16,7 @@ function App(props) {
 	const classes = styles();
 	const {changeLocale,} = props;
 	return (
-			<Grid display='flex' container className={classes.mainWrapper}>
+			<Grid  container className={classes.mainWrapper}>
 				<Grid item xs={12} md={3} height={1}>
 					<Sidebar changeLocale={changeLocale}/>
 				</Grid>

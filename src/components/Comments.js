@@ -72,6 +72,11 @@ const Comments = props => {
 		btn: {
 			width: '20%',
 			backgroundColor: '#6AC5FE!important'
+		},
+		"@media(max-width(768px)":{
+			commentBlock:{
+				marginTop:'10px'
+			}
 		}
 	});
 	const classes = styles();
