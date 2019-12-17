@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ::-webkit-scrollbar {
   display: none;
 }
@@ -13,6 +14,9 @@ body{
         margin: 0;
         height: 100%;
 }
+=======
+
+>>>>>>> dev
 .mainWrapper{
   height: 100vh;
 }
@@ -27,6 +31,7 @@ h2{
   background: none;
   background-color:#6AC5FE!important
 }
+<<<<<<< HEAD
 .sidebar{
   background: #316A82;
   color: white !important;
@@ -62,6 +67,16 @@ h2{
   height: 70vh;
   display: flex;
   flex-direction: column;
+=======
+.App{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+h2{
+  margin: 0;
+  padding: 0;
+>>>>>>> dev
 }
 .list{
   display: flex;
@@ -73,35 +88,15 @@ h2{
 .toDoListHeader{
   padding-left:30px;
 }
-.commentBlock{
-  padding: 20px 20px 0 20px;
-  height: 100%;
-}
-.comments{
-  padding: 30px;
-  height: 100%;
-  height: 82vh;
-  display: flex;
-    flex-direction: column;
-}
-.textField{
-  width: 77%;
-}
 .textField input{
   padding: 9.5px 14px!important;
 
-}
-.btn{
-  width: 20%;
 }
 .inputField{
   padding-top: 20px;
   padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
-}
-.table{
-  height:100%;
 }
 .todoList{
   list-style: none;
@@ -118,15 +113,6 @@ h2{
   border-bottom: 1px solid lightgrey;
   
 }
-.toDoItemWrap{
-  justify-content: space-between;
-  overflow: hidden;
-  display: flex;
-    width: 100%;
-    margin-left: 30px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
 .todoListItem.active:before{
   content: ' ';
   position: static;
@@ -134,16 +120,6 @@ h2{
   height: auto;
   background: green;
   
-}
-.comments ul{
-  list-style: none;
-  padding: 0;
-  margin:0;
-}
-.commentField{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
 }
 .commentItem{
   display: flex;
@@ -161,9 +137,7 @@ h2{
   width: 15%;
 }
 .innerTexts{
-  text-overflow: ellipsis;
-  max-width: 94%;
-  overflow: hidden;
+  
 }
 .commentText{
   width: 85%;
@@ -172,6 +146,7 @@ h2{
   align-self: center;
   overflow: hidden;
 }
+
 .commentCounter{
   margin-left: 5px;
   align-self: flex-start;
@@ -186,22 +161,17 @@ h2{
 }
 .commentsWrapper{
   max-height: 75%;
-  overflow-y: scroll; /* Hide vertical scrollbar */
+  overflow-y: scroll; 
   overflow-x: hidden;
 }
 .commentFieldWrapper{
   margin-top:auto;
 }
 .btnWithLine{
-  align-self: flex-end;
-  margin-top: 20px;
-  display: flex;
+  
 }
 .lineForBtn{
-  align-self: center;
-  width: 80%;
-  height: 1px;
-  background: lightgrey;
+  
 }
 .languages{
   margin-bottom: 35%;
@@ -224,12 +194,13 @@ h2{
 }
 .toDoListWrapper{
   max-height: 80%;
-  overflow-y: scroll; /* Hide vertical scrollbar */
+  overflow-y: scroll; 
   overflow-x: hidden;
 }
 .test{
   margin-top: auto;
 }
+<<<<<<< HEAD
 
 @media screen and (max-width: 959px){
   .basic-single{
@@ -243,6 +214,8 @@ h2{
 .commentTextArea{
   overflow: hidden;
 }
+=======
+>>>>>>> dev
 .toDoItemTextArea{
   overflow: hidden;
     text-overflow: ellipsis;
