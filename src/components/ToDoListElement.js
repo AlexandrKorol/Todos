@@ -150,7 +150,8 @@ const ListElement = props => {
 const mapStateToProps = state => ({
 	comments: state.comments.commentsArray,
 	active: state.toDoList.active,
-	newToDoId: state.toDoList.newToDoId
+	newToDoId: state.toDoList.newToDoId,
+	toDoList: state.toDoList.itemList,
 });
 
 const mapDispatchToProps = dispatch => ({
