@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles, Container } from '@material-ui/core';
 import {setLocale} from 'react-redux-i18n';
 import {connect} from 'react-redux';
 import TodoSection from './components/TodoSection';
@@ -9,7 +9,7 @@ import Sidebar from './components/Sidebar';
 
 const styles=makeStyles({
 	mainWrapper:{
-		height:" 100vh",
+		height: "100vh",
 	},
 })
 function App(props) {
@@ -24,6 +24,7 @@ function App(props) {
 					<TodoSection />
 				</Grid>
 			</Grid>
+			
 	);
 }
 
