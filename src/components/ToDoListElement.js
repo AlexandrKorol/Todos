@@ -30,7 +30,7 @@ const ListElement = props => {
 			justifyContent: 'space-between',
 			overflow: 'hidden',
 			display: 'flex',
-			width: '95%',
+			width: '100%',
 			marginLeft: '30px',
 			paddingBottom: '10px',
 			paddingTop: '10px'

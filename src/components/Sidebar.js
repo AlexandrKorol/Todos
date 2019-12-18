@@ -68,11 +68,15 @@ const styles = makeStyles(theme=>({
 		menuList:{
 				background: '#F7AE4C', 
 				color: 'white'
+		},
+		h2:{
+			alignSelf: 'center'
 		}
 	},
 	burgerBtn:{
 		width: 'fit-content',
-		height: 'fit-content'
+		height: 'fit-content',
+		alignSelf: 'center'
 	},
 	
 }));
