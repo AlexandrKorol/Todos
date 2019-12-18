@@ -7,7 +7,7 @@ import { filterComments } from '../actions/Comments';
 import { Button, makeStyles, Tooltip } from '@material-ui/core';
 import cn from 'classnames';
 const ListElement = props => {
-	const { activateToDo, id, title, active, comments } = props;
+	const { activateToDo, id, title, active, comments, toDoList } = props;
 
 	const makeActive = id => e => {
 		activateToDo(id);
@@ -150,7 +150,8 @@ const ListElement = props => {
 const mapStateToProps = state => ({
 	comments: state.comments.commentsArray,
 	active: state.toDoList.active,
-	newToDoId: state.toDoList.newToDoId
+	newToDoId: state.toDoList.newToDoId,
+	toDoList: state.toDoList.itemList
 });
 
 const mapDispatchToProps = dispatch => ({
