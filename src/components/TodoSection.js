@@ -18,6 +18,14 @@ const styles = makeStyles({
 		h2: {
 			fontSize: '40px',
 			fontWeight: '100'
+		},
+		'@media(max-width:768px)':{
+			'.MuiButton-label':{
+				fontSize: '0.675rem',
+			},
+			'.MuiButton-root':{
+				padding: '6px 0px',
+			}
 		}
 	}
 });
