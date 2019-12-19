@@ -19,7 +19,7 @@ const styles = makeStyles({
 			fontSize: '40px',
 			fontWeight: '100'
 		},
-		'@media(max-width:768px)':{
+		'@media(max-width:959px)':{
 			'.MuiButton-label':{
 				fontSize: '0.675rem',
 			},
